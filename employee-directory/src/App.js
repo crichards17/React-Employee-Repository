@@ -1,8 +1,13 @@
 import React from "react";
+import Heading from "./components/Heading";
+import ListingContainer from "./components/ListingContainer";
 
 function App() {
   return (
-    <h1>Content Here</h1>
+    <React.Fragment>
+      <Heading />
+      <ListingContainer />
+    </React.Fragment>
   );
 }
 
