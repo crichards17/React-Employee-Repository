@@ -1,25 +1,25 @@
 import React from "react";
-// import "./style.css";
+import "./style.css";
 
-function EmployeeTable({ filteredList }) {
+function EmployeeTable({ filteredList, sortEmployees, getDate }) {
     return (
         <table className="table table-striped table-sortable text-center">
             <thead>
                 <tr>
                 <th scope="col">Image</th>
-                <th scope="col" data-field="name" data-sortable="true">
-                    {/* <span onClick={() => props.sortBy("name", "last", "first")}>
+                <th scope="col" data-field="name" >
+                    <span className="sort-header" onClick={() => sortEmployees("name")}>
                     Name
-                    </span> */}
+                    </span>
                 </th>
                 <th scope="col">
-                    {/* <span onClick={() => props.sortBy("phone")}>Phone</span> */}
+                    <span className="sort-header" onClick={() => sortEmployees("phone")}>Phone</span>
                 </th>
                 <th scope="col">
-                    {/* <span onClick={() => props.sortBy("email")}>Email</span> */}
+                    <span className="sort-header" onClick={() => sortEmployees("email")}>Email</span>
                 </th>
                 <th scope="col">
-                    {/* <span onClick={() => props.sortBy("dob", "date")}>DOB</span> */}
+                    <span className="sort-header" onClick={() => sortEmployees("dob")}>Date of Birth</span>
                 </th>
                 </tr>
             </thead>
@@ -27,9 +27,6 @@ function EmployeeTable({ filteredList }) {
                 {filteredList.map((employee) => {
                 const { first, last } = employee.name;
                 const fullName = `${first} ${last}`;
-
-                // Format date
-                const dob = employee.dob.date;
 
                 return (
                     <tr key={employee.login.uuid}>
@@ -42,7 +39,7 @@ function EmployeeTable({ filteredList }) {
                     <td className="align-middle email">
                         <a href={`mailto:${employee.email}`}>{employee.email}</a>
                     </td>
-                    <td className="align-middle">{dob}</td>
+                    <td className="align-middle">{getDate(employee.dob.date)}</td>
                     </tr>
                 );
                 })}

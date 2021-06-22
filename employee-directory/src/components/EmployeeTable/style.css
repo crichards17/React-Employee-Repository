@@ -1,0 +1,33 @@
+.sort-header{
+    cursor: pointer
+}
+
+tbody {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 65vh;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead {
+    color: rgb(45, 16, 139);
+}
+
+a:link {
+    color:rgb(45, 16, 139);
+}
+
+a:visited {
+    color: rgb(87, 86, 86);
+}
+
+a:hover {
+    color: orange;
+}

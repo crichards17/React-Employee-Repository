@@ -6,7 +6,7 @@ const Heading = () => {
     <header>
       <h1 className="text-center">Personnel Listings</h1>
       <p className="text-center">
-        List Usage Instructions Here
+        Use the Search bar to filter employee listings, click a table heading to sort the list
       </p>
     </header>
   );

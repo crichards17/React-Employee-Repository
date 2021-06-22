@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import EmployeeTable from "../EmployeeTable";
 import { getEmployees } from "../../utils/API"
 import Search from "../Search";
-// import "./style.css";
 
 class ListingContainer extends Component {
     state = {
         employees: [],
         search: "",
-        filteredList: []
+        filteredList: [],
+        sortKey: ""
     }
 
     componentDidMount() {
@@ -53,6 +53,30 @@ class ListingContainer extends Component {
         }
     }
 
+    sortEmployees = (key) => {
+        let sortedList = this.state.filteredList;
+        if (this.state.sortKey === key) {
+            this.setState({
+                filteredList: sortedList.reverse()
+            });
+        } else {
+            sortedList = sortedList.sort((a,b) => {
+                a = a[key];
+                b = b[key];
+                return a.toString().localeCompare(b.toString());
+            });
+            this.setState({
+                filteredList: sortedList,
+                sortKey: key
+            });
+        }
+    }
+
+    getDate = (date) => {
+        let newDate = new Date(date);
+        return (`${ ("0" + (newDate.getMonth() + 1)).slice(-2) }-${ ( "0" + newDate.getDate()).slice(-2) }-${newDate.getFullYear()}`)
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -63,6 +87,8 @@ class ListingContainer extends Component {
                 />
                 <EmployeeTable 
                     filteredList={this.state.filteredList}
+                    sortEmployees={this.sortEmployees}
+                    getDate={this.getDate}
                 />
             </React.Fragment>
         )
