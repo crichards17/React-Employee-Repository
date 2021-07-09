@@ -2,7 +2,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
 ## Description  
-  A Ract application demonstrating usage of React components and state. This application represents an employee directory consisting of a table of sample data that can be filtered and searched in a reactive manner.
+  A React application demonstrating usage of React components and state. This application represents an employee directory consisting of a table of sample data that can be filtered and searched in a reactive manner.
 
 ## Usage  
 <ol>
